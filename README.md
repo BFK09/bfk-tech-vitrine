@@ -3,6 +3,8 @@
 Site de présentation de BFK-TECH : logiciels de gestion sous Excel (GESTOPHARM, GESTOMAQUIS, sur mesure),
 création de sites web, contact. Le site n'annonce que ce que BFK-TECH sait livrer aujourd'hui. HTML et CSS, sans JavaScript pour l'instant.
 
+**En ligne :** https://bfk09.github.io/bfk-tech-vitrine/ · **Code :** https://github.com/BFK09/bfk-tech-vitrine
+
 ## Lancer le site
 Ouvrir `index.html` dans le navigateur, ou depuis la racine de l'espace BFK-TECH :
 
@@ -38,7 +40,18 @@ bfk-tech-vitrine/
 - [x] Fiches GESTOPHARM et GESTOMAQUIS réécrites d'après les classeurs V1.1
 - [x] Offre « Application web » retirée tant qu'elle n'est pas maîtrisée (à remettre avec une première réalisation)
 - [ ] JavaScript : menu mobile repliable, formulaire de contact
-- [ ] Mise en ligne : GitHub + GitHub Pages
+- [x] Mise en ligne : GitHub + GitHub Pages (18/11/2026)
+
+## Mettre à jour le site en ligne
+Modifier les fichiers, puis dans ce dossier :
+
+```bash
+git add -A
+git commit -m "Message clair en français"
+git push
+```
+
+GitHub Pages republie le site en une ou deux minutes.
 
 ## Limite connue
 L'en-tête et le pied de page sont copiés dans les 4 pages : un changement de menu doit être fait 4 fois.
