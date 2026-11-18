@@ -1,0 +1,350 @@
+/* =========================================================
+   BFK-TECH — feuille de style du site vitrine
+   Organisation :
+   1. Variables (couleurs, tailles)   5. Composants (boutons, cartes)
+   2. Base (reset léger, typo)        6. Sections de page
+   3. Mise en page (conteneur)        7. Pied de page
+   4. En-tête et menu                 8. Adaptation écrans larges
+   Approche « mobile d'abord » : les règles de base visent le
+   téléphone, les media queries (min-width) ajoutent pour l'ordinateur.
+   ========================================================= */
+
+/* 1. Variables : on change une couleur ici, elle change partout */
+:root {
+    --color-primary: #0f2a4a;      /* bleu foncé : en-tête, titres */
+    --color-primary-light: #1d4e89;
+    --color-accent: #f59e0b;       /* orange : boutons, détails */
+    --color-accent-dark: #d97706;
+    --color-text: #1f2937;
+    --color-muted: #6b7280;
+    --color-bg: #ffffff;
+    --color-bg-soft: #f3f6fa;      /* fond des sections alternées */
+    --color-border: #e5e7eb;
+
+    --font-main: "Inter", Arial, sans-serif;
+    --radius: 12px;
+    --shadow: 0 4px 16px rgba(15, 42, 74, 0.08);
+    --max-width: 1100px;
+}
+
+/* 2. Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* le padding est compté DANS la largeur */
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+h1,
+h2,
+h3 {
+    color: var(--color-primary);
+    line-height: 1.25;
+    margin: 0 0 0.75rem;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.2rem; }
+
+p {
+    margin: 0 0 1rem;
+}
+
+a {
+    color: var(--color-primary-light);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* 3. Mise en page : le conteneur centre le contenu et limite sa largeur */
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 56px 0;
+}
+
+.section--soft {
+    background-color: var(--color-bg-soft);
+}
+
+.section-intro {
+    max-width: 640px;
+    margin-bottom: 32px;
+    color: var(--color-muted);
+}
+
+/* Grille de cartes : autant de colonnes que la place le permet,
+   chacune d'au moins 260px. Pas besoin de media query. */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+/* 4. En-tête et menu */
+.site-header {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.site-header .container {
+    display: flex;
+    flex-direction: column; /* téléphone : logo au-dessus du menu */
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.logo span {
+    color: var(--color-accent);
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 20px; /* 8px entre les lignes, 20px entre les liens */
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+}
+
+.nav a:hover,
+.nav a[aria-current="page"] {
+    border-bottom-color: var(--color-accent); /* page actuelle soulignée */
+}
+
+/* 5. Composants */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.btn--primary {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+
+.btn--primary:hover {
+    background-color: var(--color-accent-dark);
+}
+
+.btn--ghost {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.btn--ghost:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.card {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px;
+    display: flex;
+    flex-direction: column; /* permet de pousser le lien en bas de la carte */
+}
+
+.card__tag {
+    align-self: flex-start;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase; /* majuscules par le CSS, pas tapées */
+    letter-spacing: 1px;
+    color: var(--color-accent-dark);
+    margin-bottom: 8px;
+}
+
+.card__link {
+    margin-top: auto; /* prend tout l'espace libre au-dessus : lien collé en bas */
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.list-check {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+
+.list-check li {
+    padding-left: 28px;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.list-check li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent-dark);
+    font-weight: 800;
+}
+
+/* 6. Sections de page */
+.hero {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    color: #fff;
+    padding: 64px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    color: #fff;
+}
+
+.hero p {
+    max-width: 640px;
+    margin: 0 auto 28px;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.page-title {
+    background-color: var(--color-bg-soft);
+    padding: 48px 0 32px;
+}
+
+.page-title p {
+    color: var(--color-muted);
+    max-width: 640px;
+    margin: 0;
+}
+
+.steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.steps li {
+    counter-increment: step; /* le CSS numérote : 1, 2, 3… */
+    position: relative;
+    padding-left: 56px;
+    margin-bottom: 24px;
+}
+
+.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta {
+    background-color: var(--color-primary);
+    color: #fff;
+    text-align: center;
+}
+
+.cta h2 {
+    color: #fff;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-list li {
+    margin-bottom: 8px;
+}
+
+.contact-list a {
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+/* 7. Pied de page */
+.site-footer {
+    background-color: var(--color-primary);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 32px 0;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.site-footer a {
+    color: #fff;
+    font-weight: 600;
+}
+
+.site-footer p {
+    margin: 0 0 6px;
+}
+
+/* 8. Écrans larges (tablette, ordinateur) — en fin de fichier pour gagner */
+@media (min-width: 768px) {
+    h1 { font-size: 2.6rem; }
+    h2 { font-size: 2rem; }
+
+    .site-header .container {
+        flex-direction: row;              /* logo à gauche, menu à droite */
+        justify-content: space-between;
+    }
+
+    .hero {
+        padding: 96px 0;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+}
