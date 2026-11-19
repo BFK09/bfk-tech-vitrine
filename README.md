@@ -23,7 +23,9 @@ bfk-tech-vitrine/
 ├── sites-web.html      Site vitrine, pour qui, notre méthode
 ├── contact.html        WhatsApp (message pré-rempli), téléphones (liens tel:) et e-mail
 ├── css/style.css       Une seule feuille de style, organisée en 8 parties
+├── sitemap.xml         Liste des pages, à déclarer dans Google Search Console
 ├── img/favicon.svg     Icône de l'onglet
+├── img/logiciels/      Captures des classeurs (données fictives, voir Docs/scripts-demo)
 ├── img/apercu-partage.png         Image affichée quand on partage le lien (1200 x 630)
 ├── img/source/apercu-partage.html Source de cette image
 └── lecons/             Leçons 01 à 03 et ancien CSS (archive d'apprentissage)
@@ -45,6 +47,9 @@ bfk-tech-vitrine/
 - [x] Offre « Application web » retirée tant qu'elle n'est pas maîtrisée (à remettre avec une première réalisation)
 - [x] Mise en ligne : GitHub + GitHub Pages (18/11/2026)
 - [x] Bouton WhatsApp et aperçu de partage (19/11/2026)
+- [x] Captures d'écran des logiciels sur la page Logiciels (19/11/2026)
+- [x] `sitemap.xml` (pas de `robots.txt` : il n'est lu qu'à la racine du domaine, pas dans un sous-dossier)
+- [ ] Déclarer le site et le sitemap dans Google Search Console (compte Google de BFK-TECH)
 - [ ] JavaScript : formulaire de contact qui prépare un message WhatsApp (leçon 04)
 - Menu repliable « ☰ » abandonné : avec 4 liens, le menu tient déjà sur téléphone
 

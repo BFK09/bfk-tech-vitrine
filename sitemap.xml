@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plan du site pour les moteurs de recherche : la liste des pages à indexer -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://bfk09.github.io/bfk-tech-vitrine/</loc>
+        <lastmod>2026-11-19</lastmod>
+    </url>
+    <url>
+        <loc>https://bfk09.github.io/bfk-tech-vitrine/logiciels.html</loc>
+        <lastmod>2026-11-19</lastmod>
+    </url>
+    <url>
+        <loc>https://bfk09.github.io/bfk-tech-vitrine/sites-web.html</loc>
+        <lastmod>2026-11-19</lastmod>
+    </url>
+    <url>
+        <loc>https://bfk09.github.io/bfk-tech-vitrine/contact.html</loc>
+        <lastmod>2026-11-19</lastmod>
+    </url>
+</urlset>
