@@ -17,7 +17,7 @@ form.addEventListener("submit", function (event) {
 
     // Composer le message : entre accents graves ` `, ${…} insère la valeur d'une variable
     // \n = retour à la ligne. « let » car le message pourra être complété plus bas
-    let message = `Bonjour BFK-TECH, je suis ${nom} à ${ville}.\nActivité : ${activite}.\nBesoin : ${besoin}.`;
+    let message = `Bonjour BFK-TECH, je suis ${nom}, à ${ville}.\nActivité : ${activite}.\nBesoin : ${besoin}.`;
 
     // Les précisions sont facultatives : on ne les ajoute que si le champ n'est pas vide
     if (precisions !== "") {
