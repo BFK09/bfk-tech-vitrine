@@ -1,7 +1,7 @@
 # Site vitrine BFK-TECH
 
 Site de présentation de BFK-TECH : logiciels de gestion sous Excel (GESTOPHARM, GESTOMAQUIS, sur mesure),
-création de sites web, contact (dont WhatsApp). Le site n'annonce que ce que BFK-TECH sait livrer aujourd'hui. HTML et CSS, sans JavaScript pour l'instant.
+création de sites web, contact (dont WhatsApp). Le site n'annonce que ce que BFK-TECH sait livrer aujourd'hui. HTML et CSS, et un premier JavaScript pour le formulaire de contact.
 
 **En ligne :** https://bfk09.github.io/bfk-tech-vitrine/ · **Code :** https://github.com/BFK09/bfk-tech-vitrine
 
@@ -23,12 +23,13 @@ bfk-tech-vitrine/
 ├── sites-web.html      Site vitrine, pour qui, notre méthode
 ├── contact.html        WhatsApp (message pré-rempli), téléphones (liens tel:) et e-mail
 ├── css/style.css       Une seule feuille de style, organisée en 8 parties
+├── js/contact.js       Formulaire de contact → message WhatsApp pré-rempli (leçon 04)
 ├── sitemap.xml         Liste des pages, à déclarer dans Google Search Console
 ├── img/favicon.svg     Icône de l'onglet
 ├── img/logiciels/      Captures des classeurs (données fictives, voir Docs/scripts-demo)
 ├── img/apercu-partage.png         Image affichée quand on partage le lien (1200 x 630)
 ├── img/source/apercu-partage.html Source de cette image
-└── lecons/             Leçons 01 à 03 et ancien CSS (archive d'apprentissage)
+└── lecons/             Leçons 01 à 04 et ancien CSS (archive d'apprentissage)
 ```
 
 ## Choix techniques
@@ -50,7 +51,7 @@ bfk-tech-vitrine/
 - [x] Captures d'écran des logiciels sur la page Logiciels (19/11/2026)
 - [x] `sitemap.xml` (pas de `robots.txt` : il n'est lu qu'à la racine du domaine, pas dans un sous-dossier)
 - [ ] Déclarer le site et le sitemap dans Google Search Console (compte Google de BFK-TECH)
-- [ ] JavaScript : formulaire de contact qui prépare un message WhatsApp (leçon 04)
+- [x] JavaScript : formulaire de contact qui prépare un message WhatsApp (leçon 04, 19/11/2026)
 - Menu repliable « ☰ » abandonné : avec 4 liens, le menu tient déjà sur téléphone
 
 ## Image d'aperçu

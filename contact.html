@@ -21,6 +21,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
     <link rel="stylesheet" href="css/style.css">
+    <!-- defer : le script est téléchargé tout de suite, mais exécuté une fois la page construite -->
+    <script src="js/contact.js" defer></script>
 </head>
 <body>
     <header class="site-header">
@@ -72,6 +74,46 @@
                         <li><a href="mailto:contact.bfktech@gmail.com">contact.bfktech@gmail.com</a></li>
                     </ul>
                 </article>
+            </div>
+        </section>
+
+        <!-- Leçon 04 : formulaire qui prépare un message WhatsApp (le comportement est dans js/contact.js) -->
+        <section class="section section--soft">
+            <div class="container">
+                <h2>Décrivez votre besoin</h2>
+                <p class="section-intro">Remplissez ces quelques champs : nous préparons le message, vous n'avez plus qu'à l'envoyer sur WhatsApp.</p>
+
+                <form class="contact-form">
+                    <!-- for="nom" relie l'étiquette au champ id="nom" : cliquer sur le texte active le champ -->
+                    <label for="nom">Votre nom</label>
+                    <input type="text" id="nom" name="nom" required>
+
+                    <label for="ville">Votre ville</label>
+                    <input type="text" id="ville" name="ville" required>
+
+                    <label for="activite">Votre activité</label>
+                    <select id="activite" name="activite" required>
+                        <option value="">Choisir…</option>
+                        <option>Centre de santé / pharmacie</option>
+                        <option>Maquis / bar</option>
+                        <option>Boutique / commerce</option>
+                        <option>Autre activité</option>
+                    </select>
+
+                    <label for="besoin">Votre besoin</label>
+                    <select id="besoin" name="besoin" required>
+                        <option value="">Choisir…</option>
+                        <option>Une démonstration de GESTOPHARM</option>
+                        <option>Une démonstration de GESTOMAQUIS</option>
+                        <option>Un outil Excel sur mesure</option>
+                        <option>Un site web</option>
+                    </select>
+
+                    <label for="message">Précisions (facultatif)</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+
+                    <button type="submit" class="btn btn--whatsapp">Préparer mon message WhatsApp</button>
+                </form>
             </div>
         </section>
     </main>
