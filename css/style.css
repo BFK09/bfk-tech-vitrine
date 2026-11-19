@@ -230,6 +230,29 @@ img {
     font-weight: 800;
 }
 
+/* Captures d'écran : width/height dans le HTML réservent la place, height: auto garde les proportions */
+.screenshot {
+    margin: 0 0 32px;
+}
+
+.screenshot img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.screenshot figcaption {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+}
+
+.screenshot--narrow {
+    max-width: 420px; /* image en hauteur : on évite qu'elle prenne tout l'écran */
+}
+
 /* 6. Sections de page */
 .hero {
     background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
