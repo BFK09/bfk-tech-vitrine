@@ -29,5 +29,6 @@ form.addEventListener("submit", function (event) {
     const url = `https://wa.me/2250758269975?text=${encodeURIComponent(message)}`;
 
     // Ouvrir WhatsApp dans un nouvel onglet (sur téléphone : l'application WhatsApp)
-    window.open(url, "_blank");
+    // "noopener" : la page ouverte ne peut pas agir sur notre onglet (window.opener reste vide)
+    window.open(url, "_blank", "noopener");
 });

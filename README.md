@@ -23,6 +23,7 @@ bfk-tech-vitrine/
 ├── sites-web.html      Site vitrine, pour qui, notre méthode
 ├── contact.html        WhatsApp (message pré-rempli), téléphones (liens tel:) et e-mail
 ├── css/style.css       Une seule feuille de style, organisée en 8 parties
+├── fonts/              Police Inter hébergée sur le site + sa licence (OFL)
 ├── js/contact.js       Formulaire de contact → message WhatsApp pré-rempli (leçon 04)
 ├── sitemap.xml         Liste des pages, à déclarer dans Google Search Console
 ├── img/favicon.svg     Icône de l'onglet
@@ -39,6 +40,7 @@ bfk-tech-vitrine/
 - **Grid** pour les cartes (`repeat(auto-fit, minmax(260px, 1fr))`) : le nombre de colonnes s'adapte seul ; **Flexbox** pour les alignements sur une ligne (en-tête, boutons).
 - **`aria-current="page"`** sur le lien de la page en cours : utile aux lecteurs d'écran et sert aussi au style.
 - **WhatsApp** : lien `https://wa.me/225…?text=…`, qui ouvre la conversation avec un message déjà écrit (espaces codés `%20`). Aucun JavaScript nécessaire.
+- **Sécurité** : HTTPS forcé par GitHub Pages ; `Content-Security-Policy` en `<meta>` dans chaque page (seuls les fichiers du site sont chargés, aucun script écrit dans le HTML n'est exécuté) ; `window.open(…, "noopener")` ; police hébergée sur le site (aucune adresse IP de visiteur envoyée à Google). Conséquence : **ne jamais écrire de `style="…"` ni de `<script>…</script>` dans les pages**, tout passe par `css/style.css` et `js/`.
 - **Open Graph** (`<meta property="og:…">`) dans chaque page : titre, description et image de la carte d'aperçu sur WhatsApp et Facebook. L'image doit être en PNG ou JPG (pas en SVG), avec une adresse complète `https://…`.
 
 ## État d'avancement

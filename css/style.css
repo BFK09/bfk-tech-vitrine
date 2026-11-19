@@ -9,6 +9,16 @@
    téléphone, les media queries (min-width) ajoutent pour l'ordinateur.
    ========================================================= */
 
+/* 0. Police Inter, hébergée sur le site (licence : fonts/OFL-Inter.txt).
+   Une seule police « variable » couvre toutes les graisses, de 100 à 900. */
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/inter-latin-wght-normal.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap; /* le texte s'affiche tout de suite, la police arrive ensuite */
+}
+
 /* 1. Variables : on change une couleur ici, elle change partout */
 :root {
     --color-primary: #0f2a4a;      /* bleu foncé : en-tête, titres */
