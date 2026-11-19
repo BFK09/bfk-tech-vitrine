@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- Source de img/apercu-partage.png (1200 x 630, format attendu par WhatsApp et Facebook).
+     Pour régénérer l'image : voir le README, section « Image d'aperçu ». -->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Aperçu de partage BFK-TECH</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            width: 1200px;
+            height: 630px;
+            font-family: "Inter", Arial, sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #0f2a4a, #1d4e89);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 90px;
+            overflow: hidden;
+        }
+        .logo { font-size: 96px; font-weight: 800; letter-spacing: 2px; margin: 0; }
+        .logo span { color: #f59e0b; }
+        .tagline { font-size: 44px; font-weight: 600; margin: 16px 0 40px; }
+        .products { display: flex; gap: 20px; }
+        .products span {
+            font-size: 28px; font-weight: 600;
+            padding: 10px 24px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 40px;
+        }
+        .url { position: absolute; bottom: 44px; left: 90px; font-size: 26px; opacity: 0.8; }
+        .bar { position: absolute; top: 0; left: 0; width: 100%; height: 14px; background: #f59e0b; }
+    </style>
+</head>
+<body>
+    <div class="bar"></div>
+    <p class="logo">BFK<span>-</span>TECH</p>
+    <p class="tagline">Logiciels de gestion et sites web</p>
+    <div class="products">
+        <span>GESTOPHARM</span>
+        <span>GESTOMAQUIS</span>
+        <span>Sites vitrines</span>
+    </div>
+    <p class="url">bfk09.github.io/bfk-tech-vitrine</p>
+</body>
+</html>
