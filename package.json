@@ -1,0 +1,12 @@
+{
+    "name": "bfk-tech-vitrine",
+    "private": true,
+    "description": "Site vitrine BFK-TECH, assemblé avec Eleventy",
+    "scripts": {
+        "start": "eleventy --serve --port=8080",
+        "build": "eleventy"
+    },
+    "devDependencies": {
+        "@11ty/eleventy": "^3.1.8"
+    }
+}

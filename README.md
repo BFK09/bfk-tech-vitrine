@@ -6,31 +6,45 @@ création de sites web, contact (dont WhatsApp). Le site n'annonce que ce que BF
 **En ligne :** https://bfk09.github.io/bfk-tech-vitrine/ · **Code :** https://github.com/BFK09/bfk-tech-vitrine
 
 ## Lancer le site
-Ouvrir `index.html` dans le navigateur, ou depuis la racine de l'espace BFK-TECH :
+Le site est **assemblé par Eleventy** (leçon 06) : on écrit les sources dans `src/`, Eleventy fabrique
+le site fini dans `_site/`. Première fois seulement, dans ce dossier :
 
 ```bash
-python -m http.server 8080 --directory Web/Sites/bfk-tech-vitrine
+npm install
 ```
 
-puis aller sur http://localhost:8080.
+Puis, à chaque séance :
+
+```bash
+npm start
+```
+
+et aller sur http://localhost:8080 (la page se recharge seule à chaque enregistrement).
+`npm run build` fabrique `_site/` sans lancer de serveur.
 
 ## Structure
 
 ```
 bfk-tech-vitrine/
-├── index.html          Accueil : présentation, 2 métiers, pourquoi nous, appel à l'action
-├── logiciels.html      GESTOPHARM, GESTOMAQUIS, sur mesure (contenu tiré des vrais classeurs)
-├── sites-web.html      Site vitrine, pour qui, notre méthode
-├── contact.html        WhatsApp (message pré-rempli), téléphones (liens tel:) et e-mail
-├── css/style.css       Une seule feuille de style, organisée en 8 parties
-├── fonts/              Police Inter hébergée sur le site + sa licence (OFL)
-├── js/contact.js       Formulaire de contact → message WhatsApp pré-rempli (leçon 04)
-├── sitemap.xml         Liste des pages, à déclarer dans Google Search Console
-├── img/favicon.svg     Icône de l'onglet
-├── img/logiciels/      Captures des classeurs (données fictives, voir Docs/scripts-demo)
-├── img/apercu-partage.png         Image affichée quand on partage le lien (1200 x 630)
-├── img/source/apercu-partage.html Source de cette image
-└── lecons/             Leçons 01 à 04 et ancien CSS (archive d'apprentissage)
+├── src/                      LES SOURCES (c'est ici qu'on travaille)
+│   ├── _includes/base.njk    Gabarit commun : <head>, en-tête, menu, pied de page (écrit UNE fois)
+│   ├── _data/site.json       Nom, adresse du site, e-mail, téléphones, année
+│   ├── _data/menu.json       Les liens du menu
+│   ├── index.html            Accueil (seulement le contenu de <main> + son « en-tête » --- … ---)
+│   ├── logiciels.html        GESTOPHARM, GESTOMAQUIS, sur mesure
+│   ├── sites-web.html        Site vitrine, pour qui, notre méthode
+│   ├── contact.html          WhatsApp, formulaire, téléphones, e-mail
+│   ├── css/style.css         Une seule feuille de style, organisée en 8 parties
+│   ├── fonts/                Police Inter hébergée sur le site + sa licence (OFL)
+│   ├── js/contact.js         Formulaire → message WhatsApp pré-rempli (leçons 04 et 05)
+│   ├── img/                  Favicon, image d'aperçu, captures des logiciels
+│   └── sitemap.xml           Liste des pages, à déclarer dans Google Search Console
+├── _site/                    Site FABRIQUÉ par Eleventy (jamais modifié à la main, pas dans git)
+├── eleventy.config.js        Réglages d'Eleventy (dossiers, fichiers copiés tels quels)
+├── package.json              Outils du projet (Eleventy) et commandes npm start / npm run build
+├── .github/workflows/publier.yml  Publication automatique sur GitHub Pages à chaque git push
+├── outils/apercu-partage.html     Source de l'image d'aperçu (non publiée)
+└── lecons/                   Fiches des leçons (non publiées)
 ```
 
 ## Choix techniques
@@ -54,19 +68,21 @@ bfk-tech-vitrine/
 - [x] `sitemap.xml` (pas de `robots.txt` : il n'est lu qu'à la racine du domaine, pas dans un sous-dossier)
 - [ ] Déclarer le site et le sitemap dans Google Search Console (compte Google de BFK-TECH)
 - [x] JavaScript : formulaire de contact qui prépare un message WhatsApp (leçon 04, 19/11/2026)
+- [x] Nom ou ville faits seulement d'espaces refusés : `.trim()` + `reportValidity()` (leçon 05, 20/11/2026)
+- [x] En-tête et pied de page écrits une seule fois grâce à Eleventy (leçon 06, 20/11/2026)
 - Menu repliable « ☰ » abandonné : avec 4 liens, le menu tient déjà sur téléphone
 
 ## Image d'aperçu
-Pour la régénérer après avoir modifié `img/source/apercu-partage.html`, lancer depuis ce dossier (Git Bash) :
+Pour la régénérer après avoir modifié `outils/apercu-partage.html`, lancer depuis ce dossier (Git Bash) :
 
 ```bash
-"/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" --headless=new --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 --virtual-time-budget=5000 --screenshot="$(cygpath -w "$PWD/img/apercu-partage.png")" "file:///$(cygpath -m "$PWD/img/source/apercu-partage.html")"
+"/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" --headless=new --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 --virtual-time-budget=5000 --screenshot="$(cygpath -w "$PWD/src/img/apercu-partage.png")" "file:///$(cygpath -m "$PWD/outils/apercu-partage.html")"
 ```
 
 WhatsApp et Facebook gardent l'ancien aperçu en mémoire quelque temps. Pour forcer Facebook à le relire, utiliser l'outil « Débogueur de partage » de Meta.
 
 ## Mettre à jour le site en ligne
-Modifier les fichiers, puis dans ce dossier :
+Modifier les fichiers dans `src/`, vérifier avec `npm start`, puis dans ce dossier :
 
 ```bash
 git add -A
@@ -74,8 +90,10 @@ git commit -m "Message clair en français"
 git push
 ```
 
-GitHub Pages republie le site en une ou deux minutes.
+Le `git push` déclenche l'automatisation `.github/workflows/publier.yml` : GitHub installe Eleventy,
+assemble le site et le publie en deux ou trois minutes (suivi dans l'onglet **Actions** du dépôt).
+Réglage nécessaire une fois : *Settings → Pages → Source : GitHub Actions*.
 
-## Limite connue
-L'en-tête et le pied de page sont copiés dans les 4 pages : un changement de menu doit être fait 4 fois.
-C'est la limite d'un site 100 % HTML ; on la résoudra plus tard (JavaScript ou générateur de site).
+## Modifier le menu, le pied de page ou le téléphone
+Une seule fois, pour les 4 pages : le menu dans `src/_data/menu.json`, les coordonnées dans
+`src/_data/site.json`, le reste de l'en-tête et du pied dans `src/_includes/base.njk`.

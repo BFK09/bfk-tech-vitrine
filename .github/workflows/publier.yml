@@ -1,0 +1,44 @@
+# Publication automatique : à chaque « git push » sur main, GitHub assemble le site
+# avec Eleventy, puis publie le dossier _site sur GitHub Pages.
+name: Publier le site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # bouton « Run workflow » pour relancer à la main
+
+# Droits minimum : lire le code, écrire sur Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Une seule publication à la fois
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  assembler:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci          # installe exactement les versions de package-lock.json
+      - run: npm run build   # Eleventy écrit le site dans _site/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  publier:
+    needs: assembler
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - id: deploiement
+        uses: actions/deploy-pages@v4

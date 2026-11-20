@@ -8,12 +8,27 @@ form.addEventListener("submit", function (event) {
     // 3. RÉAGIR : on annule le comportement par défaut (envoi + rechargement de la page)
     event.preventDefault();
 
+    // Leçon 05 : .trim() retire les espaces (et retours à la ligne) au début et à la fin
+    // "  Koffi  " devient "Koffi" ; "   " devient "" (chaîne vide)
+    // On remet le texte nettoyé DANS le champ : un nom fait d'espaces redevient un champ vide…
+    const champNom = document.querySelector("#nom");
+    const champVille = document.querySelector("#ville");
+    champNom.value = champNom.value.trim();
+    champVille.value = champVille.value.trim();
+
+    // … et on redemande au navigateur de vérifier les « required ».
+    // reportValidity() renvoie true si tout est bon, false sinon (et affiche la bulle d'erreur).
+    // ! = « non » ; return = on quitte la fonction ici, WhatsApp ne s'ouvre pas
+    if (!form.reportValidity()) {
+        return;
+    }
+
     // Étape 3 : lire ce que la personne a saisi (# = sélecteur d'id, comme en CSS)
-    const nom = document.querySelector("#nom").value;
-    const ville = document.querySelector("#ville").value;
+    const nom = champNom.value;
+    const ville = champVille.value;
     const activite = document.querySelector("#activite").value;
     const besoin = document.querySelector("#besoin").value;
-    const precisions = document.querySelector("#message").value;
+    const precisions = document.querySelector("#message").value.trim();
 
     // Composer le message : entre accents graves ` `, ${…} insère la valeur d'une variable
     // \n = retour à la ligne. « let » car le message pourra être complété plus bas

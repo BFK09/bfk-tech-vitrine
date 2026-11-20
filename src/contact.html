@@ -1,44 +1,10 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Politique de sécurité : le navigateur ne charge que les fichiers venant de ce site -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
-    <meta name="description" content="Contactez BFK-TECH sur WhatsApp, par téléphone ou par e-mail pour un logiciel de gestion ou un site web.">
-    <title>Contact | BFK-TECH</title>
-    <!-- Aperçu quand le lien est partagé (WhatsApp, Facebook…) : protocole Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="BFK-TECH">
-    <meta property="og:locale" content="fr_FR">
-    <meta property="og:title" content="Contact | BFK-TECH">
-    <meta property="og:description" content="Contactez BFK-TECH sur WhatsApp, par téléphone ou par e-mail pour un logiciel de gestion ou un site web.">
-    <meta property="og:url" content="https://bfk09.github.io/bfk-tech-vitrine/contact.html">
-    <meta property="og:image" content="https://bfk09.github.io/bfk-tech-vitrine/img/apercu-partage.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="BFK-TECH : logiciels de gestion et sites web">
-    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-    <!-- Police hébergée sur le site : aucune requête vers un service extérieur -->
-    <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- defer : le script est téléchargé tout de suite, mais exécuté une fois la page construite -->
-    <script src="js/contact.js" defer></script>
-</head>
-<body>
-    <header class="site-header">
-        <div class="container">
-            <a class="logo" href="index.html">BFK<span>-</span>TECH</a>
-            <nav class="nav" aria-label="Menu principal">
-                <a href="index.html">Accueil</a>
-                <a href="logiciels.html">Nos logiciels</a>
-                <a href="sites-web.html">Sites web</a>
-                <a href="contact.html" aria-current="page">Contact</a>
-            </nav>
-        </div>
-    </header>
-
-    <main>
+---
+layout: base.njk
+permalink: contact.html
+title: "Contact | BFK-TECH"
+description: "Contactez BFK-TECH sur WhatsApp, par téléphone ou par e-mail pour un logiciel de gestion ou un site web."
+script: js/contact.js
+---
         <section class="page-title">
             <div class="container">
                 <h1>Contactez-nous</h1>
@@ -62,7 +28,6 @@
                     <!-- tel: ouvre directement l'appel sur un téléphone -->
                     <ul class="contact-list">
                         <li><a href="tel:+2250758269975">07 58 26 99 75</a></li>
-                        <li><a href="tel:+2250709580971">07 09 58 09 71</a></li>
                         <li><a href="tel:+2250576787333">05 76 78 73 33</a></li>
                     </ul>
                 </article>
@@ -117,14 +82,3 @@
                 </form>
             </div>
         </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <p><a href="mailto:contact.bfktech@gmail.com">contact.bfktech@gmail.com</a></p>
-            <p>07 58 26 99 75 · 07 09 58 09 71 · 05 76 78 73 33</p>
-            <p>&copy; 2026 BFK-TECH. Tous droits réservés.</p>
-        </div>
-    </footer>
-</body>
-</html>

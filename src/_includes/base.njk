@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Politique de sécurité : le navigateur ne charge que les fichiers venant de ce site -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta name="description" content="{{ description }}">
+    <title>{{ title }}</title>
+    <!-- Aperçu quand le lien est partagé (WhatsApp, Facebook…) : protocole Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.name }}">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:url" content="{{ site.url }}{% if permalink != 'index.html' %}{{ permalink }}{% endif %}">
+    <meta property="og:image" content="{{ site.url }}img/apercu-partage.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="BFK-TECH : logiciels de gestion et sites web">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <!-- Police hébergée sur le site : aucune requête vers un service extérieur -->
+    <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/style.css">
+    {%- if script %}
+    <!-- defer : le script est téléchargé tout de suite, mais exécuté une fois la page construite -->
+    <script src="{{ script }}" defer></script>
+    {%- endif %}
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a class="logo" href="index.html">BFK<span>-</span>TECH</a>
+            <nav class="nav" aria-label="Menu principal">
+                {%- for item in menu %}
+                <a href="{{ item.href }}"{% if item.href == permalink %} aria-current="page"{% endif %}>{{ item.label }}</a>
+                {%- endfor %}
+            </nav>
+        </div>
+    </header>
+
+    <main>
+{{ content | safe }}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+            <p>{{ site.phones | join(" · ") }}</p>
+            <!-- Lien vers un autre site : nouvel onglet, et noopener pour qu'il ne puisse pas agir sur le nôtre -->
+            <p><a href="{{ site.shop }}" target="_blank" rel="noopener">Notre boutique en ligne</a></p>
+            <p>&copy; {{ site.year }} BFK-TECH. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>

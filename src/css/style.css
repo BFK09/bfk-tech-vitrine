@@ -220,6 +220,20 @@ img {
     text-decoration: none;
 }
 
+/* Groupe d'actions en bas d'une carte : bouton + lien, côte à côte ou l'un sous l'autre si la place manque */
+.card__actions {
+    margin-top: auto; /* même astuce que .card__link : le groupe est collé en bas de la carte */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;   /* 12 px entre les lignes, 20 px entre les éléments */
+}
+
+.card__actions .card__link {
+    margin-top: 0;    /* dans le groupe, c'est le groupe qui est collé en bas, pas le lien */
+    white-space: nowrap; /* le lien ne se coupe pas : s'il manque de place, il passe en entier à la ligne */
+}
+
 .list-check {
     list-style: none;
     padding: 0;
