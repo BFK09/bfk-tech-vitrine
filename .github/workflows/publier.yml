@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24 # npm 11, comme sur le PC (npm 10 refuse notre package-lock.json)
           cache: npm
       - run: npm ci          # installe exactement les versions de package-lock.json
       - run: npm run build   # Eleventy écrit le site dans _site/
