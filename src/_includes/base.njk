@@ -7,6 +7,10 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
     <meta name="description" content="{{ description }}">
     <title>{{ title }}</title>
+    {%- if site.googleVerification %}
+    <!-- Preuve pour Google Search Console que ce site nous appartient -->
+    <meta name="google-site-verification" content="{{ site.googleVerification }}">
+    {%- endif %}
     <!-- Aperçu quand le lien est partagé (WhatsApp, Facebook…) : protocole Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="{{ site.name }}">

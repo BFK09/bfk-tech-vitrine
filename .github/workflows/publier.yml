@@ -22,8 +22,8 @@ jobs:
   assembler:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 24 # npm 11, comme sur le PC (npm 10 refuse notre package-lock.json)
           cache: npm
