@@ -131,8 +131,21 @@ img {
     letter-spacing: 0.5px;
 }
 
-.logo span {
+/* Seul le tiret (le span DANS .logo__text) est orange */
+.logo__text span {
     color: var(--color-accent);
+}
+
+/* Le symbole à gauche du nom : flex aligne l'image et le texte sur la même ligne.
+   Le texte est regroupé dans .logo__text, sinon gap écarterait aussi « BFK », « - » et « TECH » */
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo__symbol {
+    display: block;
 }
 
 .nav {

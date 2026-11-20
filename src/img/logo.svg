@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <!-- Symbole BFK-TECH : 4 cases (tableau, logiciel, tuiles d'application), une en orange -->
+  <rect width="120" height="120" rx="26" fill="#0f2a4a"/>
+  <rect x="26" y="26" width="31" height="31" rx="7" fill="#ffffff"/>
+  <rect x="63" y="26" width="31" height="31" rx="7" fill="#ffffff"/>
+  <rect x="26" y="63" width="31" height="31" rx="7" fill="#ffffff"/>
+  <rect x="63" y="63" width="31" height="31" rx="7" fill="#f59e0b"/>
+</svg>

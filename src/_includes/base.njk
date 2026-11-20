@@ -34,7 +34,8 @@
 <body>
     <header class="site-header">
         <div class="container">
-            <a class="logo" href="index.html">BFK<span>-</span>TECH</a>
+            <!-- alt="" : le nom écrit juste après suffit, le lecteur d'écran ne lira pas « BFK-TECH » deux fois -->
+            <a class="logo" href="index.html"><img class="logo__symbol" src="img/logo.svg" alt="" width="40" height="40"><span class="logo__text">BFK<span>-</span>TECH</span></a>
             <nav class="nav" aria-label="Menu principal">
                 {%- for item in menu %}
                 <a href="{{ item.href }}"{% if item.href == permalink %} aria-current="page"{% endif %}>{{ item.label }}</a>
