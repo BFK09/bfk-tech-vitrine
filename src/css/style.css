@@ -462,3 +462,33 @@ img {
         padding: 80px 0;
     }
 }
+
+/* Galerie de captures au format téléphone (portrait) : 2 colonnes, puis 4 sur grand écran */
+.phone-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 16px;
+    margin-top: 24px;
+}
+@media (min-width: 900px) {
+    .phone-gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.phone-shot {
+    margin: 0;
+    text-align: center;
+}
+.phone-shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+.phone-shot figcaption {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+}

@@ -19,8 +19,13 @@ eleventyComputed:
                 <h1>{{ logiciel.name }}</h1>
                 <p>{{ logiciel.intro }}</p>
                 <div class="card__actions">
+                    {#- Bouton d'achat seulement si le produit a un lien Chariow dans site.json #}
+                    {%- if site.products[logiciel.slug] %}
                     <a class="btn btn--primary" href="{{ site.products[logiciel.slug] }}" target="_blank" rel="noopener">Acheter en ligne</a>
                     <a class="card__link" href="contact.html">Demander une démonstration →</a>
+                    {%- else %}
+                    <a class="btn btn--primary" href="contact.html">Demander une démonstration</a>
+                    {%- endif %}
                 </div>
             </div>
         </section>
@@ -36,19 +41,22 @@ eleventyComputed:
             </div>
         </section>
 
-        <!-- Captures réelles du classeur, rempli avec des données fictives -->
+        <!-- Captures réelles de l'application, remplie avec des données fictives -->
         <section class="section section--soft">
             <div class="container">
                 <h2>{{ logiciel.name }} en images</h2>
-                <p class="section-intro">Captures prises dans le vrai classeur, rempli avec des données de démonstration. Cliquez sur une image pour l'agrandir.</p>
-                {%- for shot in logiciel.screenshots %}
-                <figure class="screenshot{% if shot.narrow %} screenshot--narrow{% endif %}">
-                    <a href="{{ shot.src }}">
-                        <img src="{{ shot.src }}" width="{{ shot.width }}" height="{{ shot.height }}" loading="lazy" alt="{{ shot.alt }}">
-                    </a>
-                    <figcaption>{{ shot.caption }}</figcaption>
-                </figure>
-                {%- endfor %}
+                <p class="section-intro">Captures prises dans la vraie application, remplie avec des données de démonstration. Cliquez sur une image pour l'agrandir.</p>
+                <!-- Captures au format téléphone : côte à côte, 2 par ligne sur téléphone, 4 sur ordinateur -->
+                <div class="phone-gallery">
+                    {%- for shot in logiciel.screenshots %}
+                    <figure class="phone-shot">
+                        <a href="{{ shot.src }}">
+                            <img src="{{ shot.src }}" width="480" height="1040" loading="lazy" alt="{{ shot.alt }}">
+                        </a>
+                        <figcaption>{{ shot.caption }}</figcaption>
+                    </figure>
+                    {%- endfor %}
+                </div>
             </div>
         </section>
 

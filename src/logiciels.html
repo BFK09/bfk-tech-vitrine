@@ -2,18 +2,18 @@
 layout: base.njk
 permalink: logiciels.html
 title: "Nos logiciels de gestion | BFK-TECH"
-description: "Les logiciels de gestion BFK-TECH : GESTOPHARM pour les pharmacies de centres de santé, GESTOMAQUIS pour les maquis et bars, et des outils sur mesure pour les autres activités."
+description: "Les logiciels de gestion BFK-TECH : GESTOPHARM pour les pharmacies de centres de santé, GESTOMAKIBAR pour les maquis et bars, GESTOLIBR pour les librairies-papeteries, et des outils sur mesure."
 ---
         <section class="page-title">
             <div class="container">
                 <h1>Nos logiciels de gestion</h1>
-                <p>Un outil par métier, pour suivre votre stock et vos ventes sans cahier ni calculs à la main. Nos outils fonctionnent avec Excel sur ordinateur Windows : pas d'abonnement, pas besoin d'Internet.</p>
+                <p>Une application par métier, pour suivre votre stock et vos ventes sans cahier ni calculs à la main. Nos applications s'installent sur téléphone Android et s'ouvrent dans un navigateur : elles fonctionnent sans Internet, et vos données restent chez vous.</p>
             </div>
         </section>
 
         <section class="section">
             <div class="container grid">
-                {#- Les fiches GESTOPHARM et GESTOMAQUIS viennent de _data/logiciels.json, comme leurs pages détaillées #}
+                {#- Les fiches des applications viennent de _data/logiciels.json, comme leurs pages détaillées #}
                 {%- for logiciel in logiciels %}
                 <article class="card" id="{{ logiciel.slug }}">
                     <span class="card__tag">{{ logiciel.tag }}</span>
@@ -24,9 +24,11 @@ description: "Les logiciels de gestion BFK-TECH : GESTOPHARM pour les pharmacies
                         <li>{{ feature }}</li>
                         {%- endfor %}
                     </ul>
-                    <!-- Deux actions : acheter tout de suite sur la boutique Chariow, ou voir la page détaillée avec les captures -->
+                    <!-- Acheter sur Chariow (si le lien existe dans site.json), ou voir la page détaillée avec les captures -->
                     <div class="card__actions">
+                        {%- if site.products[logiciel.slug] %}
                         <a class="btn btn--primary" href="{{ site.products[logiciel.slug] }}" target="_blank" rel="noopener">Acheter en ligne</a>
+                        {%- endif %}
                         <a class="card__link" href="{{ logiciel.slug }}.html">Voir {{ logiciel.name }} en détail →</a>
                     </div>
                 </article>
@@ -35,7 +37,7 @@ description: "Les logiciels de gestion BFK-TECH : GESTOPHARM pour les pharmacies
                 <article class="card" id="sur-mesure">
                     <span class="card__tag">Autres activités</span>
                     <h2>Sur mesure</h2>
-                    <p>Librairie, boutique, petite entreprise : nous concevons un outil Excel adapté à votre activité.</p>
+                    <p>Boutique, quincaillerie, petite entreprise : nous concevons un outil adapté à votre activité : Excel, application web ou mobile.</p>
                     <ul class="list-check">
                         <li>Analyse de vos besoins</li>
                         <li>Outil construit pour votre métier</li>

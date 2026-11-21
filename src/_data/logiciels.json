@@ -3,59 +3,74 @@
         "slug": "gestopharm",
         "name": "GESTOPHARM",
         "tag": "Santé",
-        "title": "GESTOPHARM : logiciel de gestion de pharmacie de centre de santé | BFK-TECH",
-        "description": "GESTOPHARM, le logiciel Excel de BFK-TECH pour la pharmacie d'un centre de santé : stock, péremptions, dispensations, bon de commande DDS et rapport RADS. Sans abonnement ni Internet.",
-        "summary": "La gestion de la pharmacie d'un centre de santé, de l'arrivage des médicaments à la dispensation aux patients.",
-        "intro": "GESTOPHARM suit chaque médicament de son arrivée à sa dispensation : vous savez à tout moment ce qui manque, ce qui va périmer et ce qu'il faut commander. Il fonctionne avec Excel sur un ordinateur Windows, sans abonnement et sans Internet.",
+        "title": "GESTOPHARM : application de gestion de pharmacie de centre de santé | BFK-TECH",
+        "description": "GESTOPHARM, l'application Android et web de BFK-TECH pour la pharmacie d'un centre de santé : lots, péremptions, dispensations, inventaire, RADS et bon de commande DDS. Sans Internet.",
+        "summary": "L'application de la pharmacie d'un centre de santé, de l'arrivage des médicaments à la dispensation aux patients.",
+        "intro": "GESTOPHARM suit chaque médicament et chaque lot, de l'entrée en stock à la dispensation : vous savez à tout moment ce qui manque, ce qui va périmer et ce qu'il faut commander. C'est une application pour téléphone Android et navigateur, qui fonctionne sans Internet ; les données restent sur l'appareil.",
         "features": [
-            "Tableau de bord : alertes de rupture, taux de disponibilité, valeur du stock, recettes du mois",
-            "Saisie guidée des entrées et des dispensations, avec n° de lot et date de péremption",
-            "Alerte sur les produits qui périment dans les 90 jours",
-            "Consommation mensuelle moyenne et stock de sécurité calculés automatiquement",
-            "Bon de commande mensuel (DDS) généré en un clic, prêt à imprimer",
-            "Rapport d'inventaire RADS par médicament et par période, exportable en PDF",
-            "Catalogue de 128 médicaments et consommables déjà saisi"
+            "Tableau de bord : valeur du stock, ruptures, péremptions proches, activité du mois",
+            "Entrées de stock avec n° de lot, date de péremption, fournisseur et prix",
+            "Dispensation en quelques touches, avec reçu en PDF",
+            "Alertes de rupture, de péremption proche et de lots périmés (bloqués pour la vente)",
+            "Inventaire physique par produit et par lot, écarts enregistrés dans l'historique",
+            "Rapport d'inventaire RADS et bon de commande DDS en PDF, même hors ligne",
+            "Catalogue de 128 médicaments et consommables, import du stock de départ depuis Excel",
+            "Sauvegarde et restauration des données"
         ],
         "screenshots": [
-            {
-                "src": "img/logiciels/gestopharm-tableau-de-bord.jpg", "width": 1200, "height": 274,
-                "alt": "Tableau de bord GESTOPHARM : 12 médicaments en alerte rupture, taux de disponibilité de 91 %, recettes du mois et valeur du stock",
-                "caption": "Le tableau de bord : alertes, disponibilité, péremptions et recettes en un coup d'œil."
-            },
-            {
-                "src": "img/logiciels/gestopharm-catalogue.jpg", "width": 1200, "height": 322,
-                "alt": "Catalogue GESTOPHARM : stock actuel, consommation mensuelle, stock de sécurité et alerte par médicament",
-                "caption": "Le catalogue : chaque médicament passe en rouge quand son stock descend sous le stock de sécurité."
-            }
+            { "src": "img/logiciels/gestopharm-accueil.jpg", "alt": "Tableau de bord GESTOPHARM : valeur du stock, ruptures, péremptions proches et activité du mois", "caption": "Le tableau de bord" },
+            { "src": "img/logiciels/gestopharm-panier.jpg", "alt": "Nouveau reçu de dispensation GESTOPHARM avec deux médicaments et le total à payer", "caption": "Une dispensation" },
+            { "src": "img/logiciels/gestopharm-stock.jpg", "alt": "Écran Mon stock de GESTOPHARM : recherche, filtres et lots de chaque médicament", "caption": "Le stock, lot par lot" },
+            { "src": "img/logiciels/gestopharm-rapport-rads.jpg", "alt": "Écran Inventaire / RADS de GESTOPHARM avec le choix de la période et l'export PDF", "caption": "Le rapport RADS" }
         ]
     },
     {
-        "slug": "gestomaquis",
-        "name": "GESTOMAQUIS",
-        "tag": "Maquis, bar & petit commerce",
-        "title": "GESTOMAQUIS : logiciel de gestion de stock pour maquis et bar | BFK-TECH",
-        "description": "GESTOMAQUIS, le logiciel Excel de BFK-TECH pour maquis, bars et petits commerces : ventes, entrées de stock, alertes de stock bas et chiffre d'affaires sur 12 mois. Sans abonnement.",
-        "summary": "Le suivi du stock et des ventes d'un maquis ou d'un bar, pensé pour le rythme du service.",
-        "intro": "GESTOMAQUIS enregistre chaque vente et chaque livraison : le stock se met à jour tout seul, et vous voyez votre chiffre d'affaires et votre marge sans faire de calcul. Il fonctionne avec Excel sur un ordinateur Windows, sans abonnement et sans Internet.",
+        "slug": "gestomakibar",
+        "name": "GESTOMAKIBAR",
+        "tag": "Maquis & bar",
+        "title": "GESTOMAKIBAR : application de caisse et de stock pour maquis et bar | BFK-TECH",
+        "description": "GESTOMAKIBAR, l'application de BFK-TECH pour maquis et bars : caisse rapide par serveur, clôture de caisse, réception en casiers, stock de boissons et crédits clients. Sans Internet.",
+        "summary": "La caisse, les serveurs et le stock de boissons d'un maquis ou d'un bar, pensés pour le rythme du service.",
+        "intro": "GESTOMAKIBAR enregistre chaque vente au nom du serveur, déduit le stock de boissons et prépare la clôture de caisse : en fin de journée, vous savez ce que chaque serveur doit remettre. C'est une application pour téléphone Android et navigateur, qui fonctionne sans Internet.",
         "features": [
-            "Tableau de bord : chiffre d'affaires, marge, valeur du stock, bouteilles reçues et vendues",
-            "Formulaire de vente pour le serveur : le stock est déduit aussitôt",
-            "Formulaire d'entrée de stock à chaque livraison",
-            "Alerte stock bas, avec un seuil réglable par produit",
-            "Évolution des ventes jour par jour et sur les 12 mois de l'année",
-            "Feuilles protégées contre les fausses manipulations"
+            "Caisse rapide en tuiles : une touche par boisson, ventes au nom du serveur",
+            "Paiement en espèces, Wave, Orange Money, MTN MoMo, Moov Money ou à crédit",
+            "Clôture de caisse par serveur, résumé envoyé par WhatsApp",
+            "Réception des livraisons en casiers et en bouteilles, stock mis à jour aussitôt",
+            "Crédits clients (ardoise), relances et reçus de remboursement",
+            "Suivi des emballages consignés, inventaire et pertes",
+            "Tableau de bord et rapports : chiffre d'affaires, marge, ventes par produit et par serveur",
+            "Catalogue de boissons de Côte d'Ivoire déjà saisi"
         ],
         "screenshots": [
-            {
-                "src": "img/logiciels/gestomaquis-tableau-de-bord.jpg", "width": 1200, "height": 521,
-                "alt": "Tableau de bord GESTOMAQUIS : chiffre d'affaires, marge brute, valeur du stock et graphique du stock par produit",
-                "caption": "Le tableau de bord : chiffre d'affaires, marge, stock et alertes, avec les boutons de vente et d'entrée de stock."
-            },
-            {
-                "src": "img/logiciels/gestomaquis-evolution.jpg", "width": 634, "height": 974, "narrow": true,
-                "alt": "Évolution des ventes GESTOMAQUIS : chiffre d'affaires et achats mois par mois sur l'année",
-                "caption": "L'évolution sur 12 mois : ventes et achats, mois par mois."
-            }
+            { "src": "img/logiciels/gestomakibar-accueil.jpg", "alt": "Tableau de bord GESTOMAKIBAR : chiffre d'affaires, marge, tickets et encaissements par mode de paiement", "caption": "Le tableau de bord" },
+            { "src": "img/logiciels/gestomakibar-caisse-tuiles.jpg", "alt": "Caisse GESTOMAKIBAR : tuiles de boissons avec leur prix et le serveur en cours", "caption": "La caisse en tuiles" },
+            { "src": "img/logiciels/gestomakibar-cloture.jpg", "alt": "Clôture de caisse GESTOMAKIBAR : totaux de la journée et montant à remettre par serveur", "caption": "La clôture de caisse" },
+            { "src": "img/logiciels/gestomakibar-reception.jpg", "alt": "Réception de boissons GESTOMAKIBAR : saisie d'une livraison en casiers", "caption": "La réception en casiers" }
+        ]
+    },
+    {
+        "slug": "gestolibr",
+        "name": "GESTOLIBR",
+        "tag": "Librairie & papeterie",
+        "title": "GESTOLIBR : application de gestion pour librairie-papeterie | BFK-TECH",
+        "description": "GESTOLIBR, l'application de BFK-TECH pour librairies et papeteries : caisse avec code-barres, listes scolaires, stock, crédits clients et rapports PDF et Excel. Sans Internet.",
+        "summary": "Les ventes, le stock et les clients d'une librairie-papeterie, avec les listes scolaires de la rentrée.",
+        "intro": "GESTOLIBR gère la caisse, le stock et les clients d'une librairie-papeterie. À la rentrée, la liste scolaire d'une classe s'ajoute au panier d'un seul coup. C'est une application pour téléphone Android, iPhone et ordinateur, qui fonctionne sans Internet.",
+        "features": [
+            "Caisse avec recherche, douchette ou scan du code-barres par la caméra",
+            "Listes scolaires par école et par classe, ajoutées au panier en une fois",
+            "Paiement partagé, monnaie à rendre, ticket imprimé ou envoyé par WhatsApp",
+            "Retours d'articles, réception des livraisons (coût moyen calculé), inventaire et pertes",
+            "Crédits clients avec plafond, rappels après 30 jours et reçus de remboursement",
+            "Tableau de bord et rapports des ventes avec marge, en PDF et Excel",
+            "Sauvegarde avec rappel, mode sombre et grand texte"
+        ],
+        "screenshots": [
+            { "src": "img/logiciels/gestolibr-accueil.jpg", "alt": "Tableau de bord GESTOLIBR : chiffre d'affaires, marge, tickets et ventes des 7 derniers jours", "caption": "Le tableau de bord" },
+            { "src": "img/logiciels/gestolibr-caisse-panier.jpg", "alt": "Caisse GESTOLIBR : panier de fournitures scolaires avec quantités et prix", "caption": "La caisse" },
+            { "src": "img/logiciels/gestolibr-listes.jpg", "alt": "Listes scolaires GESTOLIBR classées par école et par classe", "caption": "Les listes scolaires" },
+            { "src": "img/logiciels/gestolibr-clients.jpg", "alt": "Clients GESTOLIBR : crédits à recouvrer et clients à relancer", "caption": "Les crédits clients" }
         ]
     }
 ]
