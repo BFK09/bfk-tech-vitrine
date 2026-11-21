@@ -13,43 +13,24 @@ description: "Les logiciels de gestion BFK-TECH : GESTOPHARM pour les pharmacies
 
         <section class="section">
             <div class="container grid">
-                <article class="card" id="gestopharm">
-                    <span class="card__tag">Santé</span>
-                    <h2>GESTOPHARM</h2>
-                    <p>La gestion de la pharmacie d'un centre de santé, de l'arrivage des médicaments à la dispensation aux patients.</p>
+                {#- Les fiches GESTOPHARM et GESTOMAQUIS viennent de _data/logiciels.json, comme leurs pages détaillées #}
+                {%- for logiciel in logiciels %}
+                <article class="card" id="{{ logiciel.slug }}">
+                    <span class="card__tag">{{ logiciel.tag }}</span>
+                    <h2>{{ logiciel.name }}</h2>
+                    <p>{{ logiciel.summary }}</p>
                     <ul class="list-check">
-                        <li>Tableau de bord : alertes de rupture, taux de disponibilité, valeur du stock, recettes du mois</li>
-                        <li>Saisie guidée des entrées et des dispensations, avec n° de lot et date de péremption</li>
-                        <li>Alerte sur les produits qui périment dans les 90 jours</li>
-                        <li>Consommation mensuelle moyenne et stock de sécurité calculés automatiquement</li>
-                        <li>Bon de commande mensuel (DDS) généré en un clic, prêt à imprimer</li>
-                        <li>Rapport d'inventaire RADS par médicament et par période, exportable en PDF</li>
-                        <li>Catalogue de 128 médicaments et consommables déjà saisi</li>
+                        {%- for feature in logiciel.features %}
+                        <li>{{ feature }}</li>
+                        {%- endfor %}
                     </ul>
-                    <!-- Deux actions : acheter tout de suite sur la boutique Chariow, ou demander une démonstration -->
+                    <!-- Deux actions : acheter tout de suite sur la boutique Chariow, ou voir la page détaillée avec les captures -->
                     <div class="card__actions">
-                        <a class="btn btn--primary" href="{{ site.products.gestopharm }}" target="_blank" rel="noopener">Acheter en ligne</a>
-                        <a class="card__link" href="contact.html">Demander une démonstration →</a>
+                        <a class="btn btn--primary" href="{{ site.products[logiciel.slug] }}" target="_blank" rel="noopener">Acheter en ligne</a>
+                        <a class="card__link" href="{{ logiciel.slug }}.html">Voir {{ logiciel.name }} en détail →</a>
                     </div>
                 </article>
-
-                <article class="card" id="gestomaquis">
-                    <span class="card__tag">Maquis, bar &amp; petit commerce</span>
-                    <h2>GESTOMAQUIS</h2>
-                    <p>Le suivi du stock et des ventes d'un maquis ou d'un bar, pensé pour le rythme du service.</p>
-                    <ul class="list-check">
-                        <li>Tableau de bord : chiffre d'affaires, marge, valeur du stock, bouteilles reçues et vendues</li>
-                        <li>Formulaire de vente pour le serveur : le stock est déduit aussitôt</li>
-                        <li>Formulaire d'entrée de stock à chaque livraison</li>
-                        <li>Alerte stock bas, avec un seuil réglable par produit</li>
-                        <li>Évolution des ventes jour par jour et sur les 12 mois de l'année</li>
-                        <li>Feuilles protégées contre les fausses manipulations</li>
-                    </ul>
-                    <div class="card__actions">
-                        <a class="btn btn--primary" href="{{ site.products.gestomaquis }}" target="_blank" rel="noopener">Acheter en ligne</a>
-                        <a class="card__link" href="contact.html">Demander une démonstration →</a>
-                    </div>
-                </article>
+                {%- endfor %}
 
                 <article class="card" id="sur-mesure">
                     <span class="card__tag">Autres activités</span>
@@ -63,46 +44,6 @@ description: "Les logiciels de gestion BFK-TECH : GESTOPHARM pour les pharmacies
                     </ul>
                     <a class="card__link" href="contact.html">Parler de votre projet →</a>
                 </article>
-            </div>
-        </section>
-
-        <!-- Captures réelles des classeurs, remplis avec des données fictives -->
-        <section class="section section--soft" id="captures">
-            <div class="container">
-                <h2>Nos logiciels en images</h2>
-                <p class="section-intro">Captures prises dans les vrais classeurs, remplis avec des données de démonstration. Cliquez sur une image pour l'agrandir.</p>
-
-                <h3>GESTOPHARM</h3>
-                <figure class="screenshot">
-                    <a href="img/logiciels/gestopharm-tableau-de-bord.jpg">
-                        <img src="img/logiciels/gestopharm-tableau-de-bord.jpg" width="1200" height="274" loading="lazy"
-                             alt="Tableau de bord GESTOPHARM : 12 médicaments en alerte rupture, taux de disponibilité de 91 %, recettes du mois et valeur du stock">
-                    </a>
-                    <figcaption>Le tableau de bord : alertes, disponibilité, péremptions et recettes en un coup d'œil.</figcaption>
-                </figure>
-                <figure class="screenshot">
-                    <a href="img/logiciels/gestopharm-catalogue.jpg">
-                        <img src="img/logiciels/gestopharm-catalogue.jpg" width="1200" height="322" loading="lazy"
-                             alt="Catalogue GESTOPHARM : stock actuel, consommation mensuelle, stock de sécurité et alerte par médicament">
-                    </a>
-                    <figcaption>Le catalogue : chaque médicament passe en rouge quand son stock descend sous le stock de sécurité.</figcaption>
-                </figure>
-
-                <h3>GESTOMAQUIS</h3>
-                <figure class="screenshot">
-                    <a href="img/logiciels/gestomaquis-tableau-de-bord.jpg">
-                        <img src="img/logiciels/gestomaquis-tableau-de-bord.jpg" width="1200" height="521" loading="lazy"
-                             alt="Tableau de bord GESTOMAQUIS : chiffre d'affaires, marge brute, valeur du stock et graphique du stock par produit">
-                    </a>
-                    <figcaption>Le tableau de bord : chiffre d'affaires, marge, stock et alertes, avec les boutons de vente et d'entrée de stock.</figcaption>
-                </figure>
-                <figure class="screenshot screenshot--narrow">
-                    <a href="img/logiciels/gestomaquis-evolution.jpg">
-                        <img src="img/logiciels/gestomaquis-evolution.jpg" width="634" height="974" loading="lazy"
-                             alt="Évolution des ventes GESTOMAQUIS : chiffre d'affaires et achats mois par mois sur l'année">
-                    </a>
-                    <figcaption>L'évolution sur 12 mois : ventes et achats, mois par mois.</figcaption>
-                </figure>
             </div>
         </section>
 

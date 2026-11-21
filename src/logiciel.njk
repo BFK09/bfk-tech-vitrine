@@ -1,0 +1,61 @@
+---
+# Un seul gabarit, une page par logiciel : Eleventy parcourt la liste _data/logiciels.json
+# (size: 1 = un logiciel par page) et range l'élément courant dans la variable « logiciel ».
+pagination:
+    data: logiciels
+    size: 1
+    alias: logiciel
+permalink: "{{ logiciel.slug }}.html"
+layout: base.njk
+menuActive: logiciels.html
+# eleventyComputed : ces valeurs sont calculées pour chaque page, à partir du logiciel courant
+eleventyComputed:
+    title: "{{ logiciel.title }}"
+    description: "{{ logiciel.description }}"
+---
+        <section class="page-title">
+            <div class="container">
+                <span class="card__tag">{{ logiciel.tag }}</span>
+                <h1>{{ logiciel.name }}</h1>
+                <p>{{ logiciel.intro }}</p>
+                <div class="card__actions">
+                    <a class="btn btn--primary" href="{{ site.products[logiciel.slug] }}" target="_blank" rel="noopener">Acheter en ligne</a>
+                    <a class="card__link" href="contact.html">Demander une démonstration →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>Ce que fait {{ logiciel.name }}</h2>
+                <ul class="list-check">
+                    {%- for feature in logiciel.features %}
+                    <li>{{ feature }}</li>
+                    {%- endfor %}
+                </ul>
+            </div>
+        </section>
+
+        <!-- Captures réelles du classeur, rempli avec des données fictives -->
+        <section class="section section--soft">
+            <div class="container">
+                <h2>{{ logiciel.name }} en images</h2>
+                <p class="section-intro">Captures prises dans le vrai classeur, rempli avec des données de démonstration. Cliquez sur une image pour l'agrandir.</p>
+                {%- for shot in logiciel.screenshots %}
+                <figure class="screenshot{% if shot.narrow %} screenshot--narrow{% endif %}">
+                    <a href="{{ shot.src }}">
+                        <img src="{{ shot.src }}" width="{{ shot.width }}" height="{{ shot.height }}" loading="lazy" alt="{{ shot.alt }}">
+                    </a>
+                    <figcaption>{{ shot.caption }}</figcaption>
+                </figure>
+                {%- endfor %}
+            </div>
+        </section>
+
+        <section class="section cta">
+            <div class="container">
+                <h2>Voir {{ logiciel.name }} en action</h2>
+                <p>Nous vous montrons l'outil sur vos propres cas, sans engagement.</p>
+                <a class="btn btn--primary" href="contact.html">Demander une démonstration</a>
+            </div>
+        </section>

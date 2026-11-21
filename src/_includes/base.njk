@@ -2,6 +2,10 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    {#- Adresse de la page sans le « / » du début : "" pour l'accueil, "logiciels.html"… (page.url marche aussi pour les pages fabriquées en série) #}
+    {%- set pagePath = page.url | replace("/", "", 1) %}
+    {#- Lien du menu à surligner : menuActive si la page le précise (fiche d'un logiciel → « Nos logiciels ») #}
+    {%- set current = menuActive or pagePath or "index.html" %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Politique de sécurité : le navigateur ne charge que les fichiers venant de ce site -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
@@ -17,7 +21,7 @@
     <meta property="og:locale" content="fr_FR">
     <meta property="og:title" content="{{ title }}">
     <meta property="og:description" content="{{ description }}">
-    <meta property="og:url" content="{{ site.url }}{% if permalink != 'index.html' %}{{ permalink }}{% endif %}">
+    <meta property="og:url" content="{{ site.url }}{{ pagePath }}">
     <meta property="og:image" content="{{ site.url }}img/apercu-partage.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -38,7 +42,7 @@
             <a class="logo" href="index.html"><img class="logo__symbol" src="img/logo.svg" alt="" width="40" height="40"><span class="logo__text">BFK<span>-</span>TECH</span></a>
             <nav class="nav" aria-label="Menu principal">
                 {%- for item in menu %}
-                <a href="{{ item.href }}"{% if item.href == permalink %} aria-current="page"{% endif %}>{{ item.label }}</a>
+                <a href="{{ item.href }}"{% if item.href == current %} aria-current="page"{% endif %}>{{ item.label }}</a>
                 {%- endfor %}
             </nav>
         </div>

@@ -359,6 +359,10 @@ img {
     background-color: var(--color-bg-soft);
     padding: 48px 0 32px;
 }
+/* Boutons sous le titre d'une page logiciel : hors d'une carte, « margin-top: auto » ne pousse rien, on met un écart fixe */
+.page-title .card__actions {
+    margin-top: 20px;
+}
 
 .page-title p {
     color: var(--color-muted);
